@@ -1,0 +1,14 @@
+$headers = @{
+    "Content-Type" = "application/json"
+}
+
+$body = @{
+    "first_name" = "Иванов"
+    "last_name" = "Иван"
+    "email" = "Ivanov.Ivan@gmail.com"
+    "password" = "asdfgh67890"
+}
+
+$bodyJson = $body | ConvertTo-Json
+
+Invoke-WebRequest -Uri http://127.0.0.1:5000/users/1 -Method PUT -Headers $headers -Body $bodyJson

@@ -1,0 +1,13 @@
+$headers = @{
+    "Content-Type" = "application/json"
+}
+
+$body = @{
+    "title" = "Сенсация"
+    "content" = "Flask работает"
+    "user_id" = 1  
+}
+
+$bodyJson = $body | ConvertTo-Json
+
+Invoke-WebRequest -Uri http://127.0.0.1:5000/news -Method POST -Headers $headers -Body $bodyJson
